@@ -114,7 +114,8 @@ public class GossipMember implements Serializable {
     public String ipAndPort() {
         return ipAddress.concat(":").concat(String.valueOf(port));
     }
-    
+
+    /** 特征值 */
     public String eigenvalue(){
         return getCluster().concat(":").concat(getIpAddress()).concat(":").concat(getPort().toString());
     }

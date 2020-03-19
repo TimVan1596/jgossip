@@ -67,20 +67,30 @@ public class SeedMember implements Serializable {
     public void setId(String id) {
         this.id = id;
     }
-    
+
+    /** eigenvalue = 特征值 */
     public String eigenvalue(){
-        return getCluster().concat(":").concat(getIpAddress()).concat(":").concat(getPort().toString());
+        return getCluster().concat(":").concat(getIpAddress()).concat(":")
+                .concat(getPort().toString());
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o){
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()){
+            return false;
+        }
 
         SeedMember that = (SeedMember) o;
 
-        if (!cluster.equals(that.cluster)) return false;
-        if (!ipAddress.equals(that.ipAddress)) return false;
+        if (!cluster.equals(that.cluster)){
+            return false;
+        }
+        if (!ipAddress.equals(that.ipAddress)){
+            return false;
+        }
         return port.equals(that.port);
     }
 

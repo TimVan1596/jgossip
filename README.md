@@ -15,7 +15,7 @@ Gossip protocol is a method for a group of nodes to discover and check the livel
 #### First you need one or more seed members
 
 ```java
-List<SeedMember> seedNodes = new ArrayLis<>();
+List<SeedMember> seedNodes = new ArrayList<>();
 SeedMember seed = new SeedMember();
 seed.setCluster(cluster);
 seed.setIpAddress(ipAddress);

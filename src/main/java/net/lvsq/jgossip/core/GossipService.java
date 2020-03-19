@@ -20,6 +20,7 @@ import io.vertx.core.logging.LoggerFactory;
 import net.lvsq.jgossip.event.GossipListener;
 import net.lvsq.jgossip.model.SeedMember;
 
+import javax.sound.midi.Soundbank;
 import java.util.List;
 
 /**
@@ -28,12 +29,20 @@ import java.util.List;
 public class GossipService {
     private static final Logger LOGGER = LoggerFactory.getLogger(GossipService.class);
 
-    public GossipService(String cluster, String ipAddress, Integer port, String id, List<SeedMember> seedMembers, GossipSettings settings, GossipListener listener) throws Exception {
-        checkParams(cluster, ipAddress, port, seedMembers);
-        if (StringUtil.isNullOrEmpty(id)) {
-            id = ipAddress.concat(":").concat(String.valueOf(port));
-        }
-        GossipManager.getInstance().init(cluster, ipAddress, port, id, seedMembers, settings, listener);
+    /** GossipService Gossip协议的服务
+     * @param listener GossipListener接口*/
+    public GossipService(String cluster, String ipAddress, Integer port
+            , String id, List<SeedMember> seedMembers, GossipSettings settings
+            , GossipListener listener) throws Exception {
+                //检查参数是否为空
+                checkParams(cluster, ipAddress, port, seedMembers);
+                //如果id为空，id置为 (ip地址:端口号)形式
+                if (StringUtil.isNullOrEmpty(id)) {
+                    id = ipAddress.concat(":").concat(String.valueOf(port));
+                }
+                GossipManager.getInstance()
+                        .init(cluster, ipAddress, port, id
+                                , seedMembers, settings, listener);
     }
 
     public GossipManager getGossipManager() {
@@ -42,7 +51,8 @@ public class GossipService {
 
     public void start() {
         if (getGossipManager().isWorking()) {
-            LOGGER.info("Cgossip already workinig");
+            LOGGER.info("Cgossip already working");
+            System.out.println("GossipService 已经开始工作 !");
             return;
         }
         GossipManager.getInstance().start();

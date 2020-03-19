@@ -18,6 +18,9 @@ package net.lvsq.jgossip.model;
  * @author lvsq
  */
 public enum GossipState {
+    /**
+     * TODO: up down join三种状态的具体解释
+     * */
     UP("up"), DOWN("down"), JOIN("join");
 
     private final String state;

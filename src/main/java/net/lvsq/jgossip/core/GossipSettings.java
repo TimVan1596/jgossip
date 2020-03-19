@@ -22,20 +22,30 @@ import net.lvsq.jgossip.net.udp.UDPMsgService;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
- * @author lvsq
- */
+ * <h3>GossipSettings</h3>
+ * <p>Gossip协议的一些具体参数</p>
+ *
+ * @author : lvsq
+ **/
 public class GossipSettings {
-    //Time between gossip ping in ms. Default is 1 second
+
+    /** 每次gossip通信的ping间隔，默认为1秒
+     * Time between gossip ping in ms. Default is 1 second */
     private int gossipInterval = 1000;
 
-    //Network delay in ms. Default is 200ms
+    /** 网络延迟，默认为200ms
+     * Network delay in ms. Default is 200ms */
     private int networkDelay = 200;
 
-    //Which message sync implementation. Default is UDPMsgService.class
+    /** (发送接收)消息同步服务的具体实现类型，默认是UDP消息服务（UDPMsgService.class）
+     * Which message sync implementation. Default is UDPMsgService.class */
     private MsgService msgService = new UDPMsgService();
 
-    //Delete the deadth node when the sync message is not received more than [deleteThreshold] times
+    /**
+     当未收到同步消息超过[deleteThreshold]次后，删除death节点，默认为3次
+     * Delete the death node when the sync message is not received more than [deleteThreshold] times. Default is 3 times*/
     private int deleteThreshold = 3;
 
     private List<SeedMember> seedMembers;
