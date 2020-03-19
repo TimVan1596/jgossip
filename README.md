@@ -1,3 +1,9 @@
+# JGossip
+一个 Java 版的 Gossip 协议实现。
+Gossip是一种一致性协议，在系统设计和开发当中有着广泛的应用，网上有一些开源实现，但是并不好用有些甚至出现了一些bug，于是乎，花了一些时间，动手写了一个，目前已经在公司内部运行了几年，效果良好，并且已经开源在Github上，以飨各位。
+[Jgossip - gossip协议的开源实现](http://https://lvsq.net/2019/12/jgossip/)
+
+
 # Gossip
 Gossip protocol is a method for a group of nodes to discover and check the liveliness of a cluster. More information can be found at http://en.wikipedia.org/wiki/Gossip_protocol.
 
